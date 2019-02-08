@@ -3,3 +3,5 @@
 RemoteSystemsTempFiles/
 
 spring-boot-jpa/\.mvn/
+
+\.recommenders/
