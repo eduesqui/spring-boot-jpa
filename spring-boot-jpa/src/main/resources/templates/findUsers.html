@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="ISO-8859-1" />
-	<title th:text="${titulo}"></title>
+<meta charset="ISO-8859-1" />
+<title th:text="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+</head>
 </head>
 <body>
-	<h1 th:text="${titulo}"></h1>
-	<table>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Last Name</th>
-			<tr>
-		</thead>
-		<tbody>
-			<tr th:each="user : ${users}">
-				<td th:text="${user.id}"></td>
-				<td th:text="${user.name}"></td>
-				<td th:text="${user.lastName}"></td>
-			</tr>
-		</tbody>
-		
-	</table>
+
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Spring Boot</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="#about"
+					th:href="@{/findUsers}">Users</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+			th:text="${title}"></h1>
+
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Last Name</th>
+				<tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.lastName}"></td>
+				</tr>
+			</tbody>
+
+		</table>
+
+	</div>
+
+
 
 </body>
 </html>
