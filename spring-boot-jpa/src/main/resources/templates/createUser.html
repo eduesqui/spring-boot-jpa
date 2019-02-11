@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Spring Boot</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="#about"
+					th:href="@{/findUsers}">Users</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<title th:text="${title}"></title>
+		<h1 th:text="${title}"
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+
+		<form th:action="@{/saveUser}" th:object="${user}" method="post">
+		
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Name</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{name}" />
+				</div>
+
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Last name</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{lastName}" />
+
+				</div>
+			</div>
+			<div class="form-group row">
+				
+				<div class="col-sm-6">
+					<input type="submit" value="Ok"  class="btn btn-primary"/>
+
+				</div>
+			</div>
+
+			<input hidden="true" th:field="*{id}">
+		</form>
+
+
+
+	</div>
+
+</body>
+</html>
