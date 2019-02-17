@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.eduesqui.springbootjpa.model.entitys.UserEntity;
 import com.eduesqui.springbootjpa.model.service.IUserBo;
@@ -68,15 +69,22 @@ public class UserController {
 	
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST)
 	public String guardar(@Valid UserEntity userEntity, BindingResult result, Model model, SessionStatus status) {
-
+		
 		if (result.hasErrors()) {
 			model.addAttribute("title", "Create user");
-			model.addAttribute("userEntity", userEntity);
 			return "createUser";
 		}
 
+		
+		
+		if (userEntity.getName().equals("admin")) {
+			model.addAttribute("title", "Create user");
+			model.addAttribute("error", "No puede ser administrador");
+			return "createUser";
+		}
+		
 		userBo.save(userEntity);
-//		return "redirect:findUsers";
+//		return "redirect:findUsers";  	
 		status.setComplete();
 		return "redirect:findUsers";
 	}

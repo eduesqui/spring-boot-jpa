@@ -33,6 +33,7 @@
 				<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 			</ul>
 		</div>
+		<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
 
 		<form th:action="@{/createUser}" th:object="${userEntity}" method="post">
 			<div class="form-group row">
