@@ -27,6 +27,7 @@ public class UserBoImpl implements IUserBo{
 	public UserEntity findOne(Long id) {
 	
 		return userDao.findById(id).orElse(null);
+		//return userDao.findOne(id);
 	}
 
 	@Override
@@ -38,6 +39,7 @@ public class UserBoImpl implements IUserBo{
 	@Override
 	public void delete(Long id) {
 		userDao.deleteById(id);
+		//userDao.delete(id);
 	}
 
 }

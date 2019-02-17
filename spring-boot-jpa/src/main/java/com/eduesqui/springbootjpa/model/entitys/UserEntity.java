@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+
 @Entity
 @Table (name="user")
 public class UserEntity implements Serializable {
@@ -20,6 +23,7 @@ public class UserEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+    @NotEmpty
 	@Column
 	private String name;
 	
