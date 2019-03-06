@@ -7,6 +7,7 @@ Code example that explains how to make a CRUD using Spring boot
 * Spring 5
 * Thymeleaf
 * Bootstrap 4
+* JPA
 
 Visit [eduesqui.com](https://eduesqui.com) 
 
